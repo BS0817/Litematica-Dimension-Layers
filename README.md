@@ -10,7 +10,7 @@ A client-side Fabric add-on that organizes Litematica schematics for several Min
 
 ## Install
 
-Use Minecraft Java **26.3**, Java **25**, Fabric Loader **0.19.5** or later, and Fabric API **0.165.2+26.3**. This release targets [Litematica 0.29.1](https://modrinth.com/mod/litematica/version/0.29.1) with [MaLiLib 0.30.2](https://modrinth.com/mod/malilib/version/0.30.2). Put the installable **litematica-dimension-layers-0.1.0+mc26.3.jar** in the Fabric profile's **mods** folder. The sources JAR is for development.
+Use Minecraft Java **26.3**, Java **25**, Fabric Loader **0.19.5** or later, and Fabric API **0.165.2+26.3**. This release targets [Litematica 0.29.1](https://modrinth.com/mod/litematica/version/0.29.1) with [MaLiLib 0.30.2](https://modrinth.com/mod/malilib/version/0.30.2). Download the installable JAR from [GitHub Releases](https://github.com/BS0817/Litematica-Dimension-Layers/releases). Put **litematica-dimension-layers-0.1.0+mc26.3.jar** in the Fabric profile's **mods** folder. The sources JAR is for development.
 
 Open Litematica's main menu and select **Dimension Layers**, or bind **Open Dimension Layers** in Minecraft's Controls. The key is unassigned by default. See [installation](docs/installation.md) and [usage](docs/usage.md) for the workflow.
 

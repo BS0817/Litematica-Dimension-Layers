@@ -4,7 +4,7 @@ Minecraft Java 26.3용 Fabric 클라이언트 애드온입니다. 여러 차원�
 
 ## 설치와 시작
 
-Java 25, Fabric Loader 0.19.5 이상, Fabric API 0.165.2+26.3, Litematica 0.29.1, MaLiLib 0.30.2를 설치합니다. 배포용 **litematica-dimension-layers-0.1.0+mc26.3.jar**를 프로필의 **mods** 폴더에 넣습니다.
+Java 25, Fabric Loader 0.19.5 이상, Fabric API 0.165.2+26.3, Litematica 0.29.1, MaLiLib 0.30.2를 설치합니다. [GitHub Releases](https://github.com/BS0817/Litematica-Dimension-Layers/releases)에서 배포용 **litematica-dimension-layers-0.1.0+mc26.3.jar**를 프로필의 **mods** 폴더에 넣습니다.
 
 Litematica 메인 메뉴에서 **차원 레이어**를 선택합니다. Minecraft 키 설정에서 **차원 레이어 열기**에 키를 지정할 수도 있습니다. 기본 키는 미지정입니다.
 
