@@ -1,0 +1,56 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.17.21'
+}
+
+group = 'dev.dimensionlayers'
+version = "${mod_version}+mc${minecraft_version}"
+base { archivesName = 'litematica-dimension-layers' }
+
+repositories {
+    mavenCentral()
+    exclusiveContent {
+        forRepository { maven { url = 'https://api.modrinth.com/maven' } }
+        filter { includeGroup 'maven.modrinth' }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${loader_version}"
+    if (providers.gradleProperty('installedMods').isPresent()) {
+        compileOnly fileTree(dir: '.deps/fabric-api-modules', include: '*.jar')
+        implementation fileTree(dir: '.deps', include: ['litematica-*.jar', 'malilib-*.jar'])
+        runtimeOnly fileTree(dir: '.deps', include: 'fabric-api-*.jar')
+    } else {
+        implementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+        implementation('maven.modrinth:bEpr0Arc:ZqV316KY') { transitive = false }
+        implementation('maven.modrinth:GcWjdA9I:JX9bESec') { transitive = false }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+    withSourcesJar()
+}
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+    options.encoding = 'UTF-8'
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('fabric.mod.json') { expand version: project.version }
+}
+jar { from('LICENSE', 'COPYING.GPL-3.0') }
+tasks.register('verifyProject', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.dimensionlayers.ProjectChecks'
+}
+check.dependsOn verifyProject
+
+tasks.named("test", Test) { failOnNoDiscoveredTests = false; dependsOn verifyProject }
